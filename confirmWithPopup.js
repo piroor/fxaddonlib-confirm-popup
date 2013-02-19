@@ -50,9 +50,7 @@
  *
  * @license
  *   The MIT License, Copyright (c) 2011-2012 YUKI "Piro" Hiroshi
- *   http://github.com/piroor/fxaddonlibs/blob/master/license.txt
- * @url http://github.com/piroor/fxaddonlibs/blob/master/confirmWithPopup.js
- * @url http://github.com/piroor/fxaddonlibs
+ * @url http://github.com/piroor/fxaddonlib-confirm-popup
  */
 
 if (typeof window == 'undefined')
