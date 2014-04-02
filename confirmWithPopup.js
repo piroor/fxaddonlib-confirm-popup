@@ -317,21 +317,21 @@ var confirmWithPopup;
 							secondaryActions,
 							Object.create(nativeOptions, {
 								eventCallback : {
-								writable     : true,
-								configurable : true,
-								enumerable   : true,
-								value        : function(aEventType) {
-									try {
-										if (!done && (aEventType == 'removed' || aEventType == 'dismissed'))
-											deferred.fail(aEventType);
-										if (options.eventCallback)
-											options.eventCallback.call(aOptions.options || aOptions, aEventType);
+									writable     : true,
+									configurable : true,
+									enumerable   : true,
+									value        : function(aEventType) {
+										try {
+											if (!done && (aEventType == 'removed' || aEventType == 'dismissed'))
+												deferred.fail(aEventType);
+											if (options.eventCallback)
+												options.eventCallback.call(aOptions.options || aOptions, aEventType);
+										}
+										finally {
+											if (aEventType == 'removed')
+												postProcess();
+										}
 									}
-									finally {
-										if (aEventType == 'removed')
-											postProcess();
-									}
-								}
 								}
 							})
 						);
