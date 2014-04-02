@@ -89,7 +89,7 @@ catch(e) {
 
 var confirmWithPopup;
 (function(global) {
-	const currentRevision = 5;
+	const currentRevision = 6;
 
 	var loadedRevision = 'confirmWithPopup' in namespace ?
 			namespace.confirmWithPopup.revision :
