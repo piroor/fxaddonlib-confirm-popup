@@ -1,7 +1,7 @@
 /**
  * @fileOverview Popup Notification (Door Hanger) Based Confirmation Library for Firefox 4.0 or later
  * @author       YUKI "Piro" Hiroshi
- * @version      5
+ * @version      6
  * Basic usage:
  *
  * @example
@@ -294,10 +294,14 @@ var confirmWithPopup;
 					options.anchor,
 					primaryAction,
 					secondaryActions,
-					{
-						__proto__ : nativeOptions,
-						dismissed : true
-					}
+					Object.create(nativeOptions, {
+						dismissed : {
+							writable     : true,
+							configurable : true,
+							enumerable   : true,
+							value        : true
+						}
+					})
 				);
 				if (!options.dismissed) {
 					/**
@@ -311,9 +315,12 @@ var confirmWithPopup;
 							options.anchor,
 							primaryAction,
 							secondaryActions,
-							{
-								__proto__     : nativeOptions,
-								eventCallback : function(aEventType) {
+							Object.create(nativeOptions, {
+								eventCallback : {
+								writable     : true,
+								configurable : true,
+								enumerable   : true,
+								value        : function(aEventType) {
 									try {
 										if (!done && (aEventType == 'removed' || aEventType == 'dismissed'))
 											deferred.fail(aEventType);
@@ -325,7 +332,8 @@ var confirmWithPopup;
 											postProcess();
 									}
 								}
-							}
+								}
+							})
 						);
 					};
 					if (namespace.Deferred)
