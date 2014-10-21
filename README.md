@@ -1,4 +1,4 @@
-# Popup Notification (Door Hanger) Based Confirmation Library for Firefox 4.0 or later
+# Popup Notification (Door Hanger) Based Confirmation Library for Firefox 31 or later
 
 ## Usage:
 
@@ -17,27 +17,27 @@
       //   persistWhileVisible (boolean)
       //   dismissed (boolean)
       //   eventCallback (function)
-     //   neverShow (boolean)
-       //   popupIconURL (string) : will be used instead of "image" option.
+      //   neverShow (boolean)
+      //   popupIconURL (string) : will be used instead of "image" option.
     });
 
-## JSDeferred style
+## ES6 Promise style
 
     confirmWithPopup(...)
-     .next(function(aButtonIndex) {
-       // the next callback receives the index of the clicked button.
+     .then(function(aButtonIndex) {
+       // the callback receives the index of the clicked button.
        switch (aButtonIndex) {
          case 0: return YesAction();
          case 1: return YesForeverAction();
          case 2: return NoForeverAction();
        }
      })
-     .error(function(aError) {
+     .catch(function(aError) {
        // dismissed or removed (not called if any button is chosen)
        ...
      });
 
-## without JSDeferred
+## without Promise
 
     confirmWithPopup({ ...,
       // Yes, Yes Forever, or No Forever
