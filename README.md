@@ -1,4 +1,6 @@
-# Popup Notification (Door Hanger) Based Confirmation Library for Firefox 31 or later
+# Popup Notification (Door Hanger) Based Confirmation Library for Firefox 31-56
+
+This project is obsolete and not maintained anymore.
 
 ## Usage:
 
